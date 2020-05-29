@@ -131,16 +131,14 @@ body {
 
 
 .sticky-footer {
-    margin-top: 10%;
-    clear: top;
-    position: relative;
-    flex-shrink: unset;
+    position: absolute;
     bottom: 0;
     width: 100%;
     height: 60px;
     line-height: 60px;
     background-color: #f5f5f5;
 }
+
 
 .dev-nav-tabs.nav.flex-column a {
     color: black;

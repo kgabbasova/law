@@ -2,11 +2,11 @@ package com.kgabbasova.law.beans;
 
 
 import com.kgabbasova.law.beans.enums.UserRole;
-import com.kgabbasova.law.beans.enums.UserState;
 import lombok.*;
 
 import javax.persistence.*;
 import java.util.Calendar;
+import java.util.Date;
 
 @Entity
 @Data
@@ -23,8 +23,8 @@ public class User {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "email")
-    private String email;
+    @Column(name = "username")
+    private String username;
 
     private String name;
 
@@ -46,14 +46,12 @@ public class User {
     private String country;
 
     @Temporal(TemporalType.DATE)
-    private Calendar birthday;
+    private Date birthday;
 
     @Enumerated(value = EnumType.STRING)
     private UserRole role;
 
-    @Enumerated(value = EnumType.STRING)
-    private UserState state;
-
+    private boolean removed;
 
 
 

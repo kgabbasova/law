@@ -4,7 +4,6 @@ package com.kgabbasova.law.security;
 
 
 import com.kgabbasova.law.beans.User;
-import com.kgabbasova.law.beans.enums.UserState;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -34,8 +33,9 @@ public class UserDetailsImpl implements UserDetails {
 
     @Override
     public String getUsername() {
-       return user.getEmail();
+       return user.getUsername();
     }
+
 
     @Override
     public boolean isAccountNonExpired() {
@@ -44,8 +44,9 @@ public class UserDetailsImpl implements UserDetails {
 
     @Override
     public boolean isAccountNonLocked() {
-        return !user.getState().equals(UserState.BANNED);
+        return true;
     }
+
 
     @Override
     public boolean isCredentialsNonExpired() {
@@ -54,7 +55,7 @@ public class UserDetailsImpl implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return user.getState().equals(UserState.ACTIVE);
+        return !user.isRemoved();
     }
 
     public User getUser () {

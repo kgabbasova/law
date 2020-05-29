@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 
 
@@ -7,18 +8,7 @@
 <html>
 <head class="h-100">
     <title>Персональные данные</title>
-    <meta charset="utf-8">
-    <link href="<c:url value="/css/bootstrap.css"/>" rel="stylesheet" type="text/css">
-    <link href="<c:url value="/css/general.css"/>" rel="stylesheet" type="text/css">
-    <script src="<c:url value="/js/jquery-3.4.0.min.js"/>"></script>
-    <script src="<c:url value="/js/jquery-ui.min.js"/>"></script>
-    <script src="<c:url value="/js/jquery-1.10.2.min.js"/>"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="<c:url value="/js/bootstrap.js"/>"></script>
-    <script src="<c:url value="/js/bootstrap.bundle.js"/>"></script>
-    <script src="<c:url value="/js/general.js"/>"></script>
-    <script src="<c:url value="/js/jquery.ui.datepicker-ru.min.js"/>"></script>
-
+    <%@include file="templates/meta.jspf"%>
 
 </head>
 
@@ -56,14 +46,14 @@
                         <div class="row mt-4">
                             <div class="col-4 align-left">
                                 <label for="name"><span>Имя</span>
-                                    <input type="text" required id="name" name=""
+                                    <input type="text" required id="name" name="name" value="${user.name}"
                                            class="field-style field-split align-left"
                                            placeholder=""/>
                                 </label>
                             </div>
                             <div class="col-4">
                                 <label for="lastname"><span>Фамилия</span>
-                                    <input type="text" required id="lastname" name=""
+                                    <input type="text" required id="lastname" name="surname" value="${user.surname}"
                                            class="field-style field-split align-left"
                                            placeholder=""/>
                                 </label>
@@ -71,7 +61,7 @@
 
                             <div class="col-4">
                                 <label for="patronymic"><span>Отчество</span>
-                                    <input type="text" required id="patronymic" name=""
+                                    <input type="text" required id="patronymic" name="patronymic" value="${user.patronymic}"
                                            class="field-style field-split align-left"
                                            placeholder=""/>
                                 </label>
@@ -83,25 +73,26 @@
                         <div class="row mt-4">
                             <div class="col-4 align-left">
                                 <label for="birthday"><span>Дата рождения</span>
-                                    <input type="date" required id="birthday" name=""
+                                    <input type="date" required id="birthday" name="birthday"
+                                           value="${user.birthday}"
                                            class="field-style field-split align-left"
                                            placeholder=""/>
                                 </label>
                             </div>
                             <div class="col-4">
                                 <label for="birthplace"><span>Место рождения</span>
-                                    <input type="text" required id="birthplace" name=""
+                                    <input type="text" required id="birthplace" name="birthPlace" value="${user.birthPlace}"
                                            class="field-style field-split align-left"
                                            placeholder=""/>
                                 </label>
                             </div>
 
                             <div class="col-4">
-                                <label for="patronymic"><span>Гражданство</span>
-                                    <select type="text" required id="citizenship" name=""
+                                <label for="citizenship"><span>Гражданство</span>
+                                    <select type="text" required id="citizenship" name="country"
                                             class="field-style field-split align-left"
                                             placeholder="">
-                                        <option> Россия</option>
+                                        <option selected value="Russia">Россия</option>
                                     </select>
 
                                 </label>
@@ -113,16 +104,16 @@
                         <div class="row mt-3">
                             <div class="col-6 align-left">
                                 <label for="issueDate"><span>Email</span>
-                                    <input type="email" required id="issueDate" name=""
+                                    <input type="email" required id="issueDate" name="username" value="${user.username}"
                                            class="date_with_calendar field-style field-split align-left"
                                            placeholder=""/>
                                 </label>
                             </div>
                             <div class="col-6">
                                 <label for="code"><span>Телефон</span>
-                                    <input type="text" required id="code" name=""
-                                           class="field-style field-split align-left"
-                                           placeholder="+7(999)-999-99-99"/>
+                                    <input type="text" required id="code" name="phone" value="${user.phone}"
+                                           class="field-style field-split align-left phone-mask"
+                                           placeholder="+7-(999)-999-99-99"/>
                                 </label>
                             </div>
 
@@ -139,14 +130,17 @@
                                     <label for="gender-man" class="radio-inline">Мужской
                                         <input type="radio" required id="gender-man" name="gender"
                                                class=""
-                                               placeholder="+7(999)-999-99-99"/>
+                                                <c:if test="${user.male}"> checked </c:if>
+                                              />
                                     </label>
                                 </div>
                                 <div class="col-4">
                                     <label for="gender-female" class="radio-inline">Женский
                                         <input type="radio" required id="gender-female" name="gender"
                                                class=""
-                                               placeholder="+7(999)-999-99-99"/>
+                                                <c:if test="${not user.male}"> checked </c:if>
+
+                                        />
                                     </label></div>
 
                             </div>

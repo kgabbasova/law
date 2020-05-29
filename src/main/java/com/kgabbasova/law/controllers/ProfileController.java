@@ -1,9 +1,15 @@
 package com.kgabbasova.law.controllers;
 
 import com.kgabbasova.law.beans.User;
+import com.kgabbasova.law.dto.Answer;
+import com.kgabbasova.law.dto.UserDto;
+import com.kgabbasova.law.repositories.UserRepository;
+import com.kgabbasova.law.security.UserDetailsImpl;
+import com.kgabbasova.law.security.UserDetailsServiceImpl;
+import com.kgabbasova.law.services.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,22 +17,36 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.security.Principal;
+
 
 @Controller
+@PreAuthorize(value = "isAuthenticated()")
 @RequestMapping(value = "/profile")
 public class ProfileController {
 
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private UserService userService;
+
     @GetMapping(path = {"/documents", "/"}, name = "documents")
     public String getDocuments(Model model) {
-//        MvcUriComponentsBuilder.
         return "profile-documents";
     }
 
     @GetMapping(path = {"/personal"}, name = "personal")
-    public String getPersonal(Model model) {
-//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-
+    public String getPersonal(Model model, Principal principal) {
+        User user = userRepository.findByUsername(principal.getName());
+        model.addAttribute("user", user);
         return "profile-personal";
+    }
+
+    @PostMapping(path = {"/personal"}, name = "personal")
+    public Answer savePersonal(@RequestBody UserDto userDto) {
+
+        return new Answer(Answer.Status.SUCCESS);
     }
 
     @GetMapping(path = {"/legal_entity"}, name = "legalEntity")

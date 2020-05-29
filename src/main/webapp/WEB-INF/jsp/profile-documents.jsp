@@ -8,17 +8,7 @@
 <head class="h-100">
     <title>Профиль. Документы</title>
     <meta charset="utf-8">
-    <link href="<c:url value="/css/bootstrap.css"/>" rel="stylesheet" type="text/css">
-    <link href="<c:url value="/css/general.css"/>" rel="stylesheet" type="text/css">
-    <link rel="shortcut icon" href="<c:url value="/images/favicon.ico"/>" type="image/x-icon"/>
-    <script src="<c:url value="/js/jquery-3.4.0.min.js"/>"></script>
-    <script src="<c:url value="/js/jquery-ui.min.js"/>"></script>
-    <script src="<c:url value="/js/jquery-1.10.2.min.js"/>"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="<c:url value="/js/bootstrap.js"/>"></script>
-    <script src="<c:url value="/js/bootstrap.bundle.js"/>"></script>
-    <script src="<c:url value="/js/general.js"/>"></script>
-    <script src="<c:url value="/js/jquery.ui.datepicker-ru.min.js"/>"></script>
+    <%@include file="templates/meta.jspf"%>
 
 </head>
 
