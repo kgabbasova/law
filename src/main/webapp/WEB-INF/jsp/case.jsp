@@ -37,7 +37,10 @@
 
 
                 </div>
+
                 <div class="col-10">
+
+                    <%@include file="templates/case-nav.jspf"%>
 
                     <form class="form-style-9 ml-3 mr-3">
                         <fieldset>
@@ -45,14 +48,14 @@
                             <div class="row mt-4">
                                 <div class="col-5 align-left">
                                     <label for="number"><span>Номер дела</span>
-                                        <input type="text" required id="number" name=""
+                                        <input type="text"  id="number" name=""
                                                class="field-style field-split align-left"
                                                placeholder="****"/>
                                     </label>
                                 </div>
                                 <div class="col-7">
                                     <label for="name"><span>Название</span>
-                                        <input type="text" required id="name" name=""
+                                        <input type="text"  id="name" name=""
                                                class="field-style field-split align-left"
                                                placeholder="******"/>
                                     </label>
@@ -62,7 +65,7 @@
                             <div class="row mt-4">
                                 <div class="col-8 align-left">
                                     <label for="form"><span>Категория дела</span>
-                                        <select type="text" required id="form" name=""
+                                        <select type="text"  id="form" name=""
                                                 class="field-style field-split align-left"
                                                 placeholder="">
                                             <option> Купля-продажа</option>
@@ -90,7 +93,7 @@
                             <div class="row mt-4">
                                 <div class="col-8 align-left">
                                     <label for="ist"><span>Статус</span>
-                                        <select type="text" required id="ist" name=""
+                                        <select type="text"  id="ist" name=""
                                                 class="field-style field-split align-left"
                                                 placeholder="">
                                             <option> ФЛ</option>
@@ -109,14 +112,14 @@
                             <div class="row mt-4">
                                 <div class="col-4 align-left">
                                     <label for="name"><span>Имя</span>
-                                        <input type="text" required id="name" name=""
+                                        <input type="text"  id="name" name=""
                                                class="field-style field-split align-left"
                                                placeholder=""/>
                                     </label>
                                 </div>
                                 <div class="col-4">
                                     <label for="lastname"><span>Фамилия</span>
-                                        <input type="text" required id="lastname" name=""
+                                        <input type="text"  id="lastname" name=""
                                                class="field-style field-split align-left"
                                                placeholder=""/>
                                     </label>
@@ -124,7 +127,7 @@
 
                                 <div class="col-4">
                                     <label for="patronymic"><span>Отчество</span>
-                                        <input type="text" required id="patronymic" name=""
+                                        <input type="text"  id="patronymic" name=""
                                                class="field-style field-split align-left"
                                                placeholder=""/>
                                     </label>
@@ -135,14 +138,14 @@
                             <div class="row mt-4">
                                 <div class="col-4 align-left">
                                     <label for="birthday"><span>Дата рождения</span>
-                                        <input type="date" required id="birthday" name=""
+                                        <input type="date"  id="birthday" name=""
                                                class="field-style field-split align-left"
                                                placeholder=""/>
                                     </label>
                                 </div>
                                 <div class="col-4">
                                     <label for="birthplace"><span>Место рождения</span>
-                                        <input type="text" required id="birthplace" name=""
+                                        <input type="text"  id="birthplace" name=""
                                                class="field-style field-split align-left"
                                                placeholder=""/>
                                     </label>
@@ -150,7 +153,7 @@
 
                                 <div class="col-4">
                                     <label for="phone"><span>Телефон</span>
-                                        <input type="text" required id="phone" name=""
+                                        <input type="text"  id="phone" name=""
                                                class="field-style field-split align-left"
                                                placeholder="+7(999)-999-99-99"/>
 
@@ -173,7 +176,7 @@
                             <div class="row mt-4">
                                 <div class="col-8 align-left">
                                     <label for="otv"><span>Статус</span>
-                                        <select type="text" required id="otv" name=""
+                                        <select type="text"  id="otv" name=""
                                                 class="field-style field-split align-left"
                                                 placeholder="">
                                             <option> ФЛ</option>
@@ -192,14 +195,14 @@
                             <div class="row mt-4">
                                 <div class="col-4 align-left">
                                     <label for="otv-name"><span>Имя</span>
-                                        <input type="text" required id="otv-name" name=""
+                                        <input type="text"  id="otv-name" name=""
                                                class="field-style field-split align-left"
                                                placeholder=""/>
                                     </label>
                                 </div>
                                 <div class="col-4">
                                     <label for="otv-lastname"><span>Фамилия</span>
-                                        <input type="text" required id="otv-lastname" name=""
+                                        <input type="text"  id="otv-lastname" name=""
                                                class="field-style field-split align-left"
                                                placeholder=""/>
                                     </label>
@@ -207,7 +210,7 @@
 
                                 <div class="col-4">
                                     <label for="otv-patronymic"><span>Отчество</span>
-                                        <input type="text" required id="otv-patronymic" name=""
+                                        <input type="text"  id="otv-patronymic" name=""
                                                class="field-style field-split align-left"
                                                placeholder=""/>
                                     </label>
@@ -218,14 +221,14 @@
                             <div class="row mt-4">
                                 <div class="col-4 align-left">
                                     <label for="otv-birthday"><span>Дата рождения</span>
-                                        <input type="date" required id="otv-birthday" name=""
+                                        <input type="date"  id="otv-birthday" name=""
                                                class="field-style field-split align-left"
                                                placeholder=""/>
                                     </label>
                                 </div>
                                 <div class="col-4">
                                     <label for="otv-birthplace"><span>Место рождения</span>
-                                        <input type="text" required id="otv-birthplace" name=""
+                                        <input type="text"  id="otv-birthplace" name=""
                                                class="field-style field-split align-left"
                                                placeholder=""/>
                                     </label>
@@ -233,7 +236,7 @@
 
                                 <div class="col-4">
                                     <label for="otv-phone"><span>Телефон</span>
-                                        <input type="text" required id="otv-phone" name=""
+                                        <input type="text"  id="otv-phone" name=""
                                                class="field-style field-split align-left"
                                                placeholder="+7(999)-999-99-99"/>
 
@@ -258,7 +261,7 @@
                             <div class="row mt-4">
                                 <div class="col-8 align-left">
                                     <label for="court"><span>Категория</span>
-                                        <select type="text" required id="court" name=""
+                                        <select type="text"  id="court" name=""
                                                 class="field-style field-split align-left"
                                                 placeholder="">
                                             <option> Арбитражный суд</option>
@@ -274,14 +277,14 @@
                             <div class="row mt-4">
                                 <div class="col-6 align-left">
                                     <label for="court-name"><span>Наименование</span>
-                                        <input type="text" required id="court-name" name=""
+                                        <input type="text"  id="court-name" name=""
                                                class="field-style field-split align-left"
                                                placeholder=""/>
                                     </label>
                                 </div>
                                 <div class="col-6">
                                     <label for="address"><span>Адрес</span>
-                                        <input type="text" required id="address" name=""
+                                        <input type="text"  id="address" name=""
                                                class="field-style field-split align-left"
                                                placeholder=""/>
                                     </label>
@@ -306,7 +309,7 @@
                             <div class="row mt-4">
                                 <div class="col-8 align-left">
                                     <label for="summ"><span>Сумма иска</span>
-                                        <input type="text" required id="summ" name=""
+                                        <input type="text"  id="summ" name=""
                                                class="field-style field-split align-left"
                                                placeholder=""/>
                                     </label>

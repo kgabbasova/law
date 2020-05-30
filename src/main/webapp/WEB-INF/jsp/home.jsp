@@ -4,7 +4,7 @@
 
 
 <!DOCTYPE html>
-<html>
+<html class="h-100">
 <head class="h-100">
     <title>О проекте</title>
     <meta charset="utf-8">

@@ -3,19 +3,14 @@ package com.kgabbasova.law.controllers;
 import com.kgabbasova.law.beans.User;
 import com.kgabbasova.law.dto.Answer;
 import com.kgabbasova.law.dto.UserDto;
-import com.kgabbasova.law.repositories.UserRepository;
-import com.kgabbasova.law.security.UserDetailsImpl;
-import com.kgabbasova.law.security.UserDetailsServiceImpl;
+import com.kgabbasova.law.services.DocumentsService;
 import com.kgabbasova.law.services.UserService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 
@@ -25,27 +20,43 @@ import java.security.Principal;
 @RequestMapping(value = "/profile")
 public class ProfileController {
 
-    @Autowired
-    private UserRepository userRepository;
 
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private DocumentsService documentsService;
+
+
+
     @GetMapping(path = {"/documents", "/"}, name = "documents")
-    public String getDocuments(Model model) {
+    public String getDocuments(Model model, Principal principal) {
+        User owner = userService.getUserByUsername(principal.getName());
+        model.addAttribute("passport", documentsService.getPassportByOwnerId(owner.getId()));
+        model.addAttribute("inn", documentsService.getInnByOwnerId(owner.getId()));
+        model.addAttribute("snils", documentsService.getSnilsByOwnerId(owner.getId()));
+        model.addAttribute("drive", documentsService.getDriveLicenseByOwnerId(owner.getId()));
+
+        model.addAttribute("owner", owner);
         return "profile-documents";
     }
 
-    @GetMapping(path = {"/personal"}, name = "personal")
+    @GetMapping(value = "/personal", name = "personal")
     public String getPersonal(Model model, Principal principal) {
-        User user = userRepository.findByUsername(principal.getName());
+        User user = userService.getUserByUsername(principal.getName());
         model.addAttribute("user", user);
         return "profile-personal";
     }
 
-    @PostMapping(path = {"/personal"}, name = "personal")
+    @PostMapping(value = "/personal")
+    @ResponseBody
     public Answer savePersonal(@RequestBody UserDto userDto) {
-
+        User userDb = userService.getUserById(userDto.getId());
+        StringBuilder sb = userService.checkUserValid(userDto, userDb);
+        if (StringUtils.isNotBlank(sb)) {
+            return new Answer(Answer.Status.ERROR, sb.toString());
+        }
+        userService.saveUser(userDto, userDb);
         return new Answer(Answer.Status.SUCCESS);
     }
 
@@ -74,9 +85,4 @@ public class ProfileController {
         return "profile-lawyer-certificate";
     }
 
-
-    @PostMapping(path = {"/personal"}, name = "personal")
-    public ResponseEntity<?> savePersonalData(@RequestBody User user) {
-        return ResponseEntity.ok("Сохранено");
-    }
 }

@@ -12,7 +12,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="<c:url value="/js/jquery.datetimepicker.js"/>"></script>
 <%--<script src="<c:url value="/js/jquery.ui.datepicker-ru.min.js"/>"></script>--%>
-<script src="<c:url value="/js/jquery.mask.js"/>"></script>
+<script src="<c:url value="/js/jquery.mask.min.js"/>"></script>
 <script src="<c:url value="/js/bootstrap.js"/>"></script>
 <script src="<c:url value="/js/bootstrap.bundle.js"/>"></script>
 <script src="<c:url value="/js/general.js"/>"></script>

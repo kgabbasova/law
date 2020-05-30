@@ -4,21 +4,21 @@
 
 
 <!DOCTYPE html>
-<html>
-<head class="h-100">
+<html  class="h-100">
+<head >
     <title>Авторизация</title>
 
     <%@include file="templates/meta.jspf"%>
 
 </head>
 
-<body class="h-100">
+<body>
 
 
 <%@include file="templates/header.jspf" %>
 
 
-<main role="main" class="h-100 mb-5">
+<main role="main" class="h-100">
 
     <div class="mt-5">
 

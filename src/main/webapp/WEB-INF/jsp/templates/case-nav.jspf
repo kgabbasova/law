@@ -1,0 +1,14 @@
+<nav class=" ml-3 mr-3 navbar navbar-expand navbar-dark bg-dark">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <a class="nav-link">Сведения о деле</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link">Приложения</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link">Создать заявление</a>
+        </li>
+
+    </ul>
+</nav>

@@ -5,15 +5,15 @@
 
 
 <!DOCTYPE html>
-<html>
-<head class="h-100">
+<html class="h-100">
+<head>
     <title>Ошибка</title>
 
     <%@include file="templates/meta.jspf"%>
 
 </head>
 
-<body class="h-100 mb-5">
+<body class="h-100">
 
 
 <%@include file="templates/header.jspf" %>

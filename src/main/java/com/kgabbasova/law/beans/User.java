@@ -1,6 +1,10 @@
 package com.kgabbasova.law.beans;
 
 
+import com.kgabbasova.law.beans.documents.DriveLicense;
+import com.kgabbasova.law.beans.documents.Inn;
+import com.kgabbasova.law.beans.documents.Passport;
+import com.kgabbasova.law.beans.documents.Snils;
 import com.kgabbasova.law.beans.enums.UserRole;
 import lombok.*;
 
@@ -21,7 +25,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long id;
+    private long id;
 
     @Column(name = "username")
     private String username;
@@ -52,6 +56,27 @@ public class User {
     private UserRole role;
 
     private boolean removed;
+
+    @OneToOne(mappedBy = "owner",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY)
+    private Passport passport;
+
+    @OneToOne(mappedBy = "owner",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY)
+    private Inn inn;
+
+
+    @OneToOne(mappedBy = "owner",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY)
+    private Snils snils;
+
+    @OneToOne(mappedBy = "owner",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY)
+    private DriveLicense driveLicense;
 
 
 

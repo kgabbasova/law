@@ -17,7 +17,7 @@ $(function () {
         var dataStr = JSON.stringify(item);
 
         $.ajax({
-            url: 'registration',
+            url: 'personal',
             data: dataStr,
             type: "POST",
             contentType: 'application/json; charset=utf-8',
@@ -25,7 +25,7 @@ $(function () {
             success: function (answer) {
                 if (answer) {
                     if (answer.status === "SUCCESS") {
-                        window.location = 'login';
+                        window.location.reload();
                     } else {
                         alert(answer.message);
                     }

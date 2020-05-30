@@ -4,7 +4,7 @@
 
 
 <!DOCTYPE html>
-<html>
+<html class="">
 <head class="h-100">
     <title>Регистрация</title>
 
@@ -13,13 +13,13 @@
 
 </head>
 
-<body class="h-100">
+<body class="h-100 ">
 
 
 <%@include file="templates/header.jspf" %>
 
 
-<main role="main" class="h-100">
+<main role="main" class="h-100 pb-5">
 
     <div class="mt-5">
 

@@ -9,6 +9,8 @@
 <head class="h-100">
     <title>Персональные данные</title>
     <%@include file="templates/meta.jspf"%>
+    <script src="<c:url value="/js/personal.js"/>"></script>
+
 
 </head>
 
@@ -43,17 +45,19 @@
 
                         <h3> Персональные данные </h3>
 
+                        <input type="hidden" name="id" value="${user.id}">
+
                         <div class="row mt-4">
                             <div class="col-4 align-left">
                                 <label for="name"><span>Имя</span>
-                                    <input type="text" required id="name" name="name" value="${user.name}"
+                                    <input type="text"  id="name" name="name" value="${user.name}"
                                            class="field-style field-split align-left"
                                            placeholder=""/>
                                 </label>
                             </div>
                             <div class="col-4">
                                 <label for="lastname"><span>Фамилия</span>
-                                    <input type="text" required id="lastname" name="surname" value="${user.surname}"
+                                    <input type="text"  id="lastname" name="surname" value="${user.surname}"
                                            class="field-style field-split align-left"
                                            placeholder=""/>
                                 </label>
@@ -61,7 +65,7 @@
 
                             <div class="col-4">
                                 <label for="patronymic"><span>Отчество</span>
-                                    <input type="text" required id="patronymic" name="patronymic" value="${user.patronymic}"
+                                    <input type="text"  id="patronymic" name="patronymic" value="${user.patronymic}"
                                            class="field-style field-split align-left"
                                            placeholder=""/>
                                 </label>
@@ -73,7 +77,7 @@
                         <div class="row mt-4">
                             <div class="col-4 align-left">
                                 <label for="birthday"><span>Дата рождения</span>
-                                    <input type="date" required id="birthday" name="birthday"
+                                    <input type="date"  id="birthday" name="birthday"
                                            value="${user.birthday}"
                                            class="field-style field-split align-left"
                                            placeholder=""/>
@@ -81,7 +85,7 @@
                             </div>
                             <div class="col-4">
                                 <label for="birthplace"><span>Место рождения</span>
-                                    <input type="text" required id="birthplace" name="birthPlace" value="${user.birthPlace}"
+                                    <input type="text"  id="birthplace" name="birthPlace" value="${user.birthPlace}"
                                            class="field-style field-split align-left"
                                            placeholder=""/>
                                 </label>
@@ -89,7 +93,7 @@
 
                             <div class="col-4">
                                 <label for="citizenship"><span>Гражданство</span>
-                                    <select type="text" required id="citizenship" name="country"
+                                    <select type="text"  id="citizenship" name="country"
                                             class="field-style field-split align-left"
                                             placeholder="">
                                         <option selected value="Russia">Россия</option>
@@ -104,14 +108,14 @@
                         <div class="row mt-3">
                             <div class="col-6 align-left">
                                 <label for="issueDate"><span>Email</span>
-                                    <input type="email" required id="issueDate" name="username" value="${user.username}"
+                                    <input type="email" disabled  id="issueDate" name="username" value="${user.username}"
                                            class="date_with_calendar field-style field-split align-left"
                                            placeholder=""/>
                                 </label>
                             </div>
                             <div class="col-6">
                                 <label for="code"><span>Телефон</span>
-                                    <input type="text" required id="code" name="phone" value="${user.phone}"
+                                    <input type="text"  id="code" name="phone" value="${user.phone}"
                                            class="field-style field-split align-left phone-mask"
                                            placeholder="+7-(999)-999-99-99"/>
                                 </label>
@@ -128,16 +132,16 @@
                                 </div>
                                 <div class="col-4">
                                     <label for="gender-man" class="radio-inline">Мужской
-                                        <input type="radio" required id="gender-man" name="gender"
-                                               class=""
+                                        <input type="radio"  id="gender-man" name="male"
+                                               class="" value="true"
                                                 <c:if test="${user.male}"> checked </c:if>
                                               />
                                     </label>
                                 </div>
                                 <div class="col-4">
                                     <label for="gender-female" class="radio-inline">Женский
-                                        <input type="radio" required id="gender-female" name="gender"
-                                               class=""
+                                        <input type="radio"  id="gender-female" name="male"
+                                               class="" value="false"
                                                 <c:if test="${not user.male}"> checked </c:if>
 
                                         />
@@ -149,14 +153,14 @@
                         <div class="row mt-4">
                             <div class="col-4 align-left">
                                 <label for="password"><span>Пароль</span>
-                                    <input type="password" required id="password" name=""
+                                    <input type="password"  id="password" name="password"
                                            class="field-style field-split align-left"
                                            placeholder=""/>
                                 </label>
                             </div>
                             <div class="col-4">
                                 <label for="new-password"><span>Новый пароль</span>
-                                    <input type="password" required id="new-password" name=""
+                                    <input type="password"  id="new-password" name="newPassword"
                                            class="field-style field-split align-left"
                                            placeholder=""/>
                                 </label>
@@ -164,7 +168,7 @@
 
                             <div class="col-4">
                                 <label for="confirm-password"><span>Подтверждение пароля</span>
-                                    <input type="password" required id="confirm-password" name=""
+                                    <input type="password"  id="confirm-password" name="passwordRepeat"
                                            class="field-style field-split align-left"
                                            placeholder=""/>
                                 </label>
@@ -174,7 +178,7 @@
                         </div>
 
                         <div class="mt-4">
-                            <input type="submit" value="Сохранить"/>
+                            <input type="submit" class="dev-save" value="Сохранить"/>
                         </div>
 
 
